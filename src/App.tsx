@@ -14,6 +14,10 @@ export function App() {
     setIsGuestsInputOpen(true);
   }
 
+  function closeGuestsInput() {
+    setIsGuestsInputOpen(false);
+  }
+
   return (
     <div className="h-screen flex items-center justify-center bg-pattern bg-no-repeat bg-center">
       <div className="w-full max-w-3xl px-6 text-center space-y-10">
@@ -31,6 +35,7 @@ export function App() {
                 className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1"
                 type="text"
                 placeholder="Para onde você vai?"
+                disabled={isGuestsInputOpen}
               />
             </div>
 
@@ -40,6 +45,7 @@ export function App() {
                 className="bg-transparent text-lg placeholder-zinc-400 w-40 outline-none"
                 type="text"
                 placeholder="Quando?"
+                disabled={isGuestsInputOpen}
               />
             </div>
 
@@ -47,7 +53,7 @@ export function App() {
 
             {isGuestsInputOpen ? (
               <button
-                onClick={() => openGuestsInput()}
+                onClick={() => closeGuestsInput()}
                 className="bg-zinc-800 text-zinc-200 rounded-lg px-5 py-2 font-medium flex items-center gap-2"
               >
                 Alterar local e data
